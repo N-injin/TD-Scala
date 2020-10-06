@@ -36,4 +36,11 @@ object Exercice1 {
 
     minHelper(a, a.head)
   }
+
+  @tailrec
+  def egaux(a: List[Int], b: List[Int]): Boolean = (a, b) match {
+    case (h1 :: Nil, h2 :: Nil) => h1 == h2
+    case (h1 :: t1, h2 :: t2) => h1 == h2 && egaux(t1, t2)
+    case (_, _) => false
+  }
 }
